@@ -1,6 +1,7 @@
 import {Component, inject, OnInit} from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {Author, Book} from '../books/model/book';
+import {Author} from '../authors/model/author';
+import {Book} from '../books/model/book';
 import {BooksService} from '../books/service/books.service';
 import { NgStyle, NgFor } from '@angular/common';
 
@@ -94,7 +95,7 @@ export class AdminComponent implements OnInit {
             );
           }
         );
-        this.showMessage('info', `The was successfully added with id ${response.id}`);
+        this.showMessage('info', `The book was successfully added with id ${response.id}`);
       },
       error: (_: any) => {
         this.showMessage('error', 'Unable to add the book');

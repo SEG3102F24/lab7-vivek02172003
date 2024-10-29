@@ -7,6 +7,12 @@ import {BookComponent} from "./books/book/book.component";
 import {LoginComponent} from "./login/login.component";
 import {AdminComponent} from "./admin/admin.component";
 import {loggedInGuard} from "./logged-in.guard";
+import { AuthorsComponent } from './authors/authors.component';
+import { AuthorComponent } from './authors/author/author.component';
+
+const authorsRoutes: Routes = [
+  {path: ':id', component: AuthorComponent}
+];
 
 const booksRoutes: Routes = [
   {path: ':id', component: BookComponent}
@@ -21,6 +27,9 @@ export const routes: Routes = [
     path: 'admin',
     component: AdminComponent,
     canActivate: [ loggedInGuard ]
+  },
+  {path: 'authors', component: AuthorsComponent,
+    children: authorsRoutes
   },
   {path: 'books', component: BooksComponent,
     children: booksRoutes
